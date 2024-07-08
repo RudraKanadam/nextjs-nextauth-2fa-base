@@ -1,7 +1,8 @@
 import GlobalNavBar from "@/components/global/GlobalNavbar";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { FlipWords } from "@/components/ui/flip-words";
-
+import { MeteorCard } from "@/components/landingPage/meteoCard";
+import Pricing from "@/components/landingPage/pricing";
 export default function Home() {
   const words = ["Modern", "Faster", "Better"];
   return (
@@ -27,6 +28,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Pricing />
     </main>
   );
 }
