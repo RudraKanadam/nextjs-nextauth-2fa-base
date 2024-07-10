@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
 import { BackgroundGradient } from "../ui/background-gradient";
-import { CheckCircleIcon } from "@heroicons/react/solid"; // Ensure you have the Heroicons package installed
+import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/solid";
 
 interface PricingCardProps {
   title: string;
   price: string;
   description: string;
-  features: string[];
+  features: { name: string; included: boolean }[];
   buttonLabel: string;
   onClick: () => void;
 }
@@ -20,7 +20,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
   buttonLabel,
   onClick,
 }) => (
-  <BackgroundGradient className="rounded-[22px] max-w-sm p-4 sm:p-10 bg-white dark:bg-zinc-900">
+  <BackgroundGradient className="rounded-sm max-w-xs p-4 sm:p-8 bg-white dark:bg-zinc-900 mx-4 my-6">
     <h2 className="text-2xl font-bold text-black dark:text-white mb-4">
       {title}
     </h2>
@@ -34,8 +34,12 @@ const PricingCard: React.FC<PricingCardProps> = ({
           key={index}
           className="text-sm text-neutral-600 dark:text-neutral-400 flex items-center"
         >
-          <CheckCircleIcon className="h-5 w-5 text-green-500 mr-2" />
-          {feature}
+          {feature.included ? (
+            <CheckCircleIcon className="h-5 w-5 text-green-500 mr-2" />
+          ) : (
+            <XCircleIcon className="h-5 w-5 text-red-500 mr-2" />
+          )}
+          {feature.name}
         </li>
       ))}
     </ul>

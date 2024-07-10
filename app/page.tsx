@@ -1,12 +1,12 @@
 import GlobalNavBar from "@/components/global/GlobalNavbar";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { FlipWords } from "@/components/ui/flip-words";
-import { MeteorCard } from "@/components/landingPage/meteoCard";
 import Pricing from "@/components/landingPage/pricing";
+
 export default function Home() {
   const words = ["Modern", "Faster", "Better"];
   return (
-    <main className="flex flex-col items-center justify-center">
+    <main className="flex flex-col items-center justify-center w-full">
       <GlobalNavBar />
       <div className="h-screen relative w-full bg-black flex flex-col items-start justify-center overflow-hidden rounded-md">
         <div className="w-full absolute inset-0 h-full">
@@ -28,7 +28,19 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Pricing />
+      <div className="relative w-full flex inset-0 h-full justify-center items-center bg-black">
+        <SparklesCore
+          id="sparkles-pricing"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={100}
+          className="absolute w-full h-full"
+          particleColor="#FFFFFF"
+          static
+        />
+        <Pricing />
+      </div>
     </main>
   );
 }

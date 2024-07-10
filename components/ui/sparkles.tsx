@@ -1,6 +1,5 @@
 "use client";
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import type { Container, SingleOrMultiple } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
@@ -17,7 +16,9 @@ type ParticlesProps = {
   speed?: number;
   particleColor?: string;
   particleDensity?: number;
+  static?: boolean;
 };
+
 export const SparklesCore = (props: ParticlesProps) => {
   const {
     id,
@@ -28,6 +29,7 @@ export const SparklesCore = (props: ParticlesProps) => {
     speed,
     particleColor,
     particleDensity,
+    static: isStatic = false,
   } = props;
   const [init, setInit] = useState(false);
   useEffect(() => {
@@ -68,7 +70,6 @@ export const SparklesCore = (props: ParticlesProps) => {
               enable: false,
               zIndex: 1,
             },
-
             fpsLimit: 120,
             interactivity: {
               events: {
@@ -183,7 +184,7 @@ export const SparklesCore = (props: ParticlesProps) => {
                 distance: {},
                 direction: "none",
                 drift: 0,
-                enable: true,
+                enable: !isStatic,
                 gravity: {
                   acceleration: 9.81,
                   enable: false,
