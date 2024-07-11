@@ -2,6 +2,7 @@ import GlobalNavBar from "@/components/global/GlobalNavbar";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { FlipWords } from "@/components/ui/flip-words";
 import Pricing from "@/components/landingPage/pricing";
+import { FAQ } from "@/components/landingPage/FAQ";
 
 export default function Home() {
   const words = ["Modern", "Faster", "Better"];
@@ -28,7 +29,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="relative w-full flex inset-0 h-full justify-center items-center bg-black">
+      <div className="relative w-full flex inset-0 h-full justify-center items-center bg-black mt-1">
         <SparklesCore
           id="sparkles-pricing"
           background="transparent"
@@ -40,6 +41,14 @@ export default function Home() {
           static
         />
         <Pricing />
+      </div>
+      <div className="relative w-full flex flex-col items-center justify-center bg-black mt-1">
+        <h1 className="text-4xl mb-4 text-neutral-600 dark:text-neutral-400 mt-4">
+          FAQ&apos;s
+        </h1>
+        <div className="w-full md:w-1/2 px-4">
+          <FAQ />
+        </div>
       </div>
     </main>
   );
